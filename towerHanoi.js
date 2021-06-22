@@ -1,25 +1,43 @@
 function towerHanoi(discs) {
 	// 'discs' is number of discs
-	let tower1 = []
-	let tower2 = []
-	let tower3 = []
+	let discsEven = discs % 2 === 0 ? true : false;
+	let testTower = []
+	let towers = [[],[],[]]
 	let moveCount = 0
+	
+	// create tower1 and testTower
 	for (let i = discs; i >= 1; i -= 1) {
-		tower1.push(i)
+		towers[0].push(i)
+		testTower.push(i)
+	}
+	while (JSON.stringify(testTower) !== JSON.stringify(towers[2])) {
+		// this will be our while loop that will keep going as long as the game is not complete
+		let lowestMove = true;
+		// find array with lowest value
+		// pop off lowest value
+		// if numDiscs is odd, move lowest value to the left
+		// if numDiscs is even, move lowest value to the right
+		// find array with next lowest value
 	}
 	console.log(tower1)
-	// so we're going to create a recursive function that takes in the: 1) numofdiscs, 2) moveCount, 3) the three towers
-	// each tower is going to be an array of numbers, each representing a disc (larger numbers will be larger discs)
-	// our base case will be if all the discs are on the third tower in descending order
-	// in every move, we never put a larger disc on top of a smaller disc
-	// (from wiki) When moving the smallest piece, always move it ot hte next position in the same direction (to the right if the starting number of pieces is evne, to the left if the starting number of pieces i sodd).
-	// If htere is no tower position inthe chosen direction, move the piece to the opposite end, but then continue to move in the correct direction
-	function moveDiscs(numDiscs, numMoves, testTower, towerOne, towerTwo, towerThree) {
-		if (JSON.stringify(testTower) === JSON.stringify(towerThree)) {
-			return numMoves
+	function moveLowest(towers, discsAreEven) {
+		// find array with lowest value
+		let lowestTower, moveToTower
+		for (let i = 0; i < 3; i += 1) {
+			if (towers[i].includes(1)) {
+				lowestTower = i
+				towers[i].pop()
+			}
 		}
-		numMoves += 1
+		if (discsAreEven) {
+			// if is odd, we move to the left
+			moveToTower = lowestTower === 2 ? 0 : lowestTower += 1;
+		} else {
+			moveToTower = lowestTower === 0 ? 2 : lowestTower -= 1;
+		}
+		return towers[moveToTower].push(1)
 	}
+
 }
 
 towerHanoi(5)
