@@ -1,7 +1,7 @@
 function towerHanoi(discs) {
   // 'discs' is number of discs
   let discsEven = discs % 2 === 0 ? true : false;
-  let testTower = [];
+  let testTower = [0];
   let towers = [[0], [0], [0]];
   let moveCount = 0;
 
@@ -10,7 +10,7 @@ function towerHanoi(discs) {
     towers[0].push(i);
     testTower.push(i);
   }
-  // while (JSON.stringify(testTower) !== JSON.stringify(towers[2])) {
+  while (JSON.stringify(testTower) !== JSON.stringify(towers[2])) {
   // 	// this will be our while loop that will keep going as long as the game is not complete
   // 	let lowestMove = true;
   // 	// find array with lowest value
@@ -18,12 +18,13 @@ function towerHanoi(discs) {
   // 	// if numDiscs is odd, move lowest value to the left
   // 	// if numDiscs is even, move lowest value to the right
   // 	// find array with next lowest value
-  // }
-  console.log(towers);
   towers = moveLowest(towers, discsEven);
-  console.log(towers);
-  moveNextLowest(towers, discsEven);
-  console.log(towers);
+  towers = moveNextLowest(towers, discsEven);
+	console.log(towers)
+  }
+  // console.log(towers);
+  // console.log(towers);
+  // console.log(towers);
 }
 
 function moveLowest(myTowers, discsAreEven) {
@@ -46,24 +47,29 @@ function moveLowest(myTowers, discsAreEven) {
   return myTowers;
 }
 function moveNextLowest(myTowers, n) {
-  console.log("moveNextLowest", myTowers);
+  // console.log("moveNextLowest", myTowers);
   // let twoHighest = [...myTowers];
   let highestVal = 2,
     middle,
     highest,
     lowest;
   for (let i = 0; i < 3; i += 1) {
-		console.log('beginning of loop, array: ', myTowers[i])
+    // console.log("beginning of loop, array: ", myTowers[i]);
     if (myTowers[i].includes(1)) {
       lowest = i;
     } else if (myTowers[i][myTowers.length - 1] >= highestVal) {
-			console.log('highest: ', myTowers[i][myTowers.length - 1], highest)
-			highest = i;
-			highestVal = myTowers[i]
-		}
+      // console.log("highest: ", myTowers[i][myTowers.length - 1], highest);
+      highest = i;
+      highestVal = myTowers[i];
+    }
   }
-	middle = [0,1,2].filter( x => ![lowest, highest].includes(x))[0]
-  console.log(lowest, middle, highest)
+  middle = [0, 1, 2].filter((x) => ![lowest, highest].includes(x))[0];
+  // console.log(myTowers);
+  // console.log(lowest, middle, highest);
+  // now we pop off the highest and push to the middle
+  myTowers = myTowers[middle].push(myTowers[highest].pop());
+  // console.log(myTowers);
+	return myTowers
 }
 
 towerHanoi(5);
