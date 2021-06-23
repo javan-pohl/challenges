@@ -5,22 +5,25 @@ function towerHanoi(discs) {
   let towers = [[], [], []];
   let moveCount = 0;
 
-  // create tower1 and testTower
   for (let i = discs; i >= 1; i -= 1) {
     towers[0].push(i);
     testTower.push(i);
   }
   while (JSON.stringify(testTower) !== JSON.stringify(towers[2])) {
     // 	// this will be our while loop that will keep going as long as the game is not complete
-    // 	let lowestMove = true;
     // 	// find array with lowest value
     // 	// pop off lowest value
     // 	// if numDiscs is odd, move lowest value to the left
     // 	// if numDiscs is even, move lowest value to the right
     // 	// find array with next lowest value
     towers = moveLowest(towers, discsEven);
+		moveCount += 1;
     console.log(towers);
-    towers = moveNextLowest(towers);
+		if (	JSON.stringify(testTower) === JSON.stringify(towers[2]) ) {
+			break
+		}
+		towers = moveNextLowest(towers);
+		moveCount += 1;
     console.log(towers);
   }
   // for (let i = 0; i < 5; i++) {
@@ -30,6 +33,7 @@ function towerHanoi(discs) {
   //   console.log(towers);
   // 	// ok, the issue is is that we're currently putting higher values on lower values
   // }
+	return moveCount
 }
 
 function moveLowest(myTowers, discsAreEven) {
@@ -94,5 +98,4 @@ function moveNextLowest(myTowers, n) {
   // console.log('end of moveNextLowest', myTowers);
   return myTowers;
 }
-
-towerHanoi(5);
+console.log(towerHanoi(5))
