@@ -4,7 +4,8 @@
   "description": "coding challenges",
   "main": "sevenBoom.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine",
+		"testJest": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/javan-pohl/challenges/issues"
   },
-  "homepage": "https://github.com/javan-pohl/challenges#readme"
+  "homepage": "https://github.com/javan-pohl/challenges#readme",
+  "devDependencies": {
+    "jasmine": "^3.7.0",
+    "jest": "^27.0.5"
+  }
 }
