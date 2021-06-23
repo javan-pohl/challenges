@@ -15,5 +15,4 @@ function countBoomerangs(arr) {
 		return 0 + countBoomerangs(arr.slice(1))
 	}
 }
-console.log(countBoomerangs([1,2,1,2]))
 module.exports = countBoomerangs
