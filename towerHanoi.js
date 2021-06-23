@@ -4,7 +4,6 @@ function towerHanoi(discs) {
   // if the number of discs is even, you always move the lowest piece to the right; if odd, to the left
   // the next lowest piece will only have one legal move
 
-  // 'discs' is number of discs
 	if (!Number.isInteger(discs)) {
 		throw new Error('Input value must be a positive integer')
 	}
@@ -23,16 +22,12 @@ function towerHanoi(discs) {
   while (JSON.stringify(testTower) !== JSON.stringify(towers[2])) {
     towers = moveLowest(towers, discsEven);
     moveCount += 1;
-    // console.log(towers);
-    // the while loop only tests at the beginning. We need to test prior to moving next lowest piece
     if (JSON.stringify(testTower) === JSON.stringify(towers[2])) {
       break;
     }
     towers = moveNextLowest(towers);
     moveCount += 1;
-    // console.log(towers);
   }
-
   return moveCount;
 }
 
@@ -78,7 +73,5 @@ function moveNextLowest(myTowers) {
     : myTowers[highest].push(myTowers[middle].pop());
   return myTowers;
 }
-// console.log(towerHanoi(5));
-// console.log(towerHanoi('five'))
 
 module.exports = towerHanoi;
