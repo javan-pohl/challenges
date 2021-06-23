@@ -1,5 +1,8 @@
 function additivePersistence (num, count = 0) {
 	// the additive persistence of an integer is the number of times you have to replace n with the sum of its digits until n becomes a single digit
+	if (!Number.isInteger(num)) {
+		throw new Error('Input value must be an integer')
+	}
 	if (num.toString().length === 1) {
 		return count 
 	}
@@ -9,6 +12,9 @@ function additivePersistence (num, count = 0) {
 }
 function multiplicativePersistence (num, count = 0) {
 	// the multiplicative persistence of an integer is the number of times you have to replace n with the product of its digits until n becomes a single digit
+	if (!Number.isInteger(num)) {
+		throw new Error('Input value must be an integer')
+	}
 	if (num.toString().length === 1) {
 		return count 
 	}
