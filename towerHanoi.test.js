@@ -21,3 +21,9 @@ test('should throw an error if it receives a string', () => {
 		towerHanoi('five');
 	}).toThrow('Input value must be a positive integer')
 })
+
+test('should throw an error if the value is less than 3', () => {
+	expect(() => {
+		towerHanoi(2)
+	}).toThrow('Input value must be 3 or larger')
+})

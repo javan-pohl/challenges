@@ -8,6 +8,9 @@ function towerHanoi(discs) {
 	if (!Number.isInteger(discs)) {
 		throw new Error('Input value must be a positive integer')
 	}
+	if (discs < 3) {
+		throw new Error('Input value must be 3 or larger')
+	}	
   let discsEven = discs % 2 === 0 ? true : false;
   let testTower = [];
   let towers = [[], [], []];
