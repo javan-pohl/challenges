@@ -5,6 +5,9 @@ function towerHanoi(discs) {
   // the next lowest piece will only have one legal move
 
   // 'discs' is number of discs
+	if (!Number.isInteger(discs)) {
+		throw new Error('Input value must be a positive integer')
+	}
   let discsEven = discs % 2 === 0 ? true : false;
   let testTower = [];
   let towers = [[], [], []];
@@ -73,5 +76,6 @@ function moveNextLowest(myTowers, n) {
   return myTowers;
 }
 // console.log(towerHanoi(5));
+// console.log(towerHanoi('five'))
 
 module.exports = towerHanoi;

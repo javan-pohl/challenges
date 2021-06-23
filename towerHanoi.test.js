@@ -10,3 +10,14 @@ for (let i = 3; i <= 10; i += 1) {
 		expect(towerHanoi(i)).toBe(numMoves)
 	})
 }
+
+// ah, yes, this method doesn't work
+// test("should throw an error if it receives a string", () => {
+// 	expect(towerHanoi('five').toThrow('Input value must be a positive integer'))
+// })
+
+test('should throw an error if it receives a string', () => {
+	expect(() => {
+		towerHanoi('five');
+	}).toThrow('Input value must be a positive integer')
+})
