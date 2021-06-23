@@ -52,7 +52,7 @@ function moveLowest(myTowers, discsAreEven) {
   myTowers[moveToTower].push(1);
   return myTowers;
 }
-function moveNextLowest(myTowers, n) {
+function moveNextLowest(myTowers) {
   let highestVal = 2,
     hasEmptySlot = false,
     middle,
