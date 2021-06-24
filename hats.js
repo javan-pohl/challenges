@@ -1,10 +1,8 @@
 function hats(arr) {
-  console.log(arr);
   let hatsTotal = arr[0];
   let productionTimes = arr[1];
   let hatsCurrent = 0;
   let minutes = 0;
-  console.log(productionTimes);
   let minTime = Math.min(...productionTimes);
   // takes in an array of two elements: number of hats to make (int); an array of the times (int) each of the 5 production lines takes to create 1 hat (i.e. an array of 5 integers)
   // this function will find the number of minutes elapsed for exactly N hats to be made
@@ -28,15 +26,9 @@ function hats(arr) {
 			} else if (hatsCurrent >= hatsTotal) {
 				return 'None'
 			}
-      console.log(
-        "minutes, hatsCurrent, hatsTotal: ",
-        minutes,
-        hatsCurrent,
-        hatsTotal
-      );
     }
   }
   return minutes;
 }
 
-console.log(hats([6, [1, 1, 1, 1, 1]]));
+module.exports= hats
