@@ -10,5 +10,4 @@ function lcm(arr, multiple) {
   }
 }
 
-console.log(lcm([1, 2, 3, 4, 5, 6, 7, 8, 9]));
-console.log(lcm([5, 7, 11, 35, 55, 77]))
+module.exports = lcm
