@@ -4,6 +4,9 @@ function hats(arr) {
   let hatsCurrent = 0;
   let minutes = 0;
   let minTime = Math.min(...productionTimes);
+	if (!Array.isArray(arr) || !Number.isInteger(hatsTotal) || productionTimes.length != 5 || !productionTimes.every( val => Number.isInteger(val))) {
+		throw new Error('Input argument must be an array where the first element is an integer and the second element is an array with five integers')
+	}
   // takes in an array of two elements: number of hats to make (int); an array of the times (int) each of the 5 production lines takes to create 1 hat (i.e. an array of 5 integers)
   // this function will find the number of minutes elapsed for exactly N hats to be made
   // // if exactly N hats cannot be made in any time frame, return "None"
@@ -31,4 +34,4 @@ function hats(arr) {
   return minutes;
 }
 
-module.exports= hats
+module.exports = hats

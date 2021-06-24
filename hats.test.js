@@ -23,3 +23,21 @@ testResult = 'None'
 test(`expects that hats(${testArray}) will return ${testResult}`, () => {
 	expect(hats(testArray)).toBe(testResult)
 })
+
+test('should throw an array if function is sent a string', () => {
+	expect(() => {
+		hats('string')
+	}).toThrow('Input argument must be an array where the first element is an integer and the second element is an array with five integers')
+})
+
+test('should throw an array if function is sent a an array with two strings', () => {
+	expect(() => {
+		hats(['string','string'])
+	}).toThrow('Input argument must be an array where the first element is an integer and the second element is an array with five integers')
+})
+
+test('should throw an array if function is sent an array of an integer and an array of only four integers', () => {
+	expect(() => {
+		hats([1,[1,1,1,1]])
+	}).toThrow('Input argument must be an array where the first element is an integer and the second element is an array with five integers')
+})
