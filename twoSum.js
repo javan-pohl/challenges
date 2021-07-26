@@ -3,14 +3,16 @@ const twoSum = function(nums, target) {
 	// we may assume that there is only ONE solution
 	// may not use the same element twice
 	// negative numbers are possible
-	for (let i = 0; i < nums.length; i += 1) {
-		for (let j = 0; j < nums.length; j += 1) {
-			if (i === j) {
-				continue
-			}
-			if (nums[i] + nums[j] === target) {
-				return [i,j]
-			}
+	let hash = {}
+
+	for (let i = 0; i < nums.length; i++) {
+		const n = nums[i]
+		if (hash[target - n] !== undefined) {
+			return [hash[target - n], i]
 		}
+		hash[n] = i
 	}
 }
+
+console.log(twoSum([2,7,11,15], 9))
+console.log(twoSum([3,2,4], 6))
