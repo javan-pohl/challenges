@@ -41,3 +41,9 @@ test('should throw an array if function is sent an array of an integer and an ar
 		hats([1,[1,1,1,1]])
 	}).toThrow('Input argument must be an array where the first element is an integer and the second element is an array with five integers')
 })
+
+test('should throw an array if function is sent an array of an integer and an array of  four integers and a string', () => {
+	expect(() => {
+		hats([1,[1,1,1,1, 'one']])
+	}).toThrow('Input argument must be an array where the first element is an integer and the second element is an array with five integers')
+})
